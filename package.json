@@ -23,5 +23,8 @@
   "homepage": "https://github.com/ThatCarterMcBride/site#readme",
   "devDependencies": {
     "parcel-bundler": "^1.9.7"
+  },
+  "dependencies": {
+    "particlesjs": "^2.2.3"
   }
 }
