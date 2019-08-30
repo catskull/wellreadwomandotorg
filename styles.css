@@ -1,9 +1,9 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro|Source+Serif+Pro&display=swap");
 
 :root {
-  --background-color: #ffffff;
-  --text-color: #222222;
-  --link-color: #00408f;
+  --background-color: hsl(0, 0%, 100%);
+  --text-color: hsl(0, 0%, 13%);
+  --link-color: hsl(213, 100%, 28%);
 }
 
 html {
@@ -21,7 +21,7 @@ html {
 }
 
 body {
-  color: #222222;
+  background-color: var(--background-color);
   color: var(--text-color);
   font-family: "Source Serif Pro", serif;
   font-feature-settings: "kern" 1;
@@ -48,11 +48,9 @@ h6 {
 a,
 a:visited,
 a:active {
-  color: #00408f;
   color: var(--link-color);
   cursor: pointer;
   transition: background 0.2s, text-decoration 0.2s, filter 0.2s;
-  text-decoration: underline solid #ffffff;
   text-decoration: underline solid var(--background-color);
 }
 
