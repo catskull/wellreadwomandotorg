@@ -88,6 +88,18 @@
   }
 </style>
 
+<svelte:head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta name="Description" content="Homepage for Carter McBride" />
+  <link rel="canonical" href="https://carter.works" />
+  <title>Carter McBride</title>
+  <link
+    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro|Source+Serif+Pro&display=swap"
+    rel="stylesheet" />
+</svelte:head>
+
 <header>
   <h1>Hi, I'm Carter.</h1>
   <p>
