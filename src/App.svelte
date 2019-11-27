@@ -8,19 +8,19 @@
       line-height 0.2s;
   }
 
+  :global(body) {
+    --background-color: hsl(225, 6%, 13%);
+    --text-color: hsl(180, 7%, 97%);
+    --link-color: hsl(213, 100%, 88%);
+    word-spacing: 0.05em;
+  }
+
   @media (prefers-color-scheme: light) {
     :global(body) {
       --background-color: hsl(0, 0%, 100%);
       --text-color: hsl(0, 0%, 13%);
       --link-color: hsl(213, 100%, 28%);
     }
-  }
-
-  :global(body) {
-    --background-color: hsl(225, 6%, 13%);
-    --text-color: hsl(180, 7%, 97%);
-    --link-color: hsl(213, 100%, 88%);
-    word-spacing: 0.05em;
   }
 
   :root {
