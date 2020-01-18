@@ -1,36 +1,83 @@
 body {
-	margin: 0;
-	font-family: Roboto, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-	font-size: 14px;
-	line-height: 1.5;
-	color: #333;
+  transition: background-color 0.2s, color 0.2s, word-spacing 0.2s,
+    line-height 0.2s;
 }
 
-h1, h2, h3, h4, h5, h6 {
-	margin: 0 0 0.5em 0;
-	font-weight: 400;
-	line-height: 1.2;
+body {
+  --background-color: hsl(225, 6%, 13%);
+  --text-color: hsl(180, 7%, 97%);
+  --link-color: hsl(213, 100%, 88%);
+  word-spacing: 0.05em;
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    --background-color: hsl(0, 0%, 100%);
+    --text-color: hsl(0, 0%, 13%);
+    --link-color: hsl(213, 100%, 28%);
+  }
+}
+
+:root {
+  font-size: 2.4vw;
+}
+@media all and (min-width: 1000px) {
+  :root {
+    font-size: 24px;
+  }
+}
+@media all and (max-width: 520px) {
+  :root {
+    font-size: 18px;
+  }
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: "Source Serif Pro", serif;
+  font-feature-settings: "kern" 1;
+  font-feature-settings: "liga" 1;
+  font-size: 0.93rem;
+  line-height: 1.4;
+  max-width: 65ch;
+  margin: auto;
+  padding: 16px;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+  font-family: "Source Sans Pro", sans-serif;
 }
 
 h1 {
-	font-size: 2em;
+  font-size: 1.5em;
 }
 
-a {
-	color: inherit;
+h2 {
+  font-size: 1.2em;
 }
 
-code {
-	font-family: menlo, inconsolata, monospace;
-	font-size: calc(1em - 2px);
-	color: #555;
-	background-color: #f0f0f0;
-	padding: 0.2em 0.4em;
-	border-radius: 2px;
+a,
+a:visited,
+a:active {
+  color: var(--link-color);
+  cursor: pointer;
+  transition: background 0.2s, text-decoration 0.2s, filter 0.2s;
+  text-decoration: underline solid var(--background-color);
 }
 
-@media (min-width: 400px) {
-	body {
-		font-size: 16px;
-	}
+a:active {
+  filter: brightness(60%);
+}
+
+a:hover {
+  text-decoration: underline;
 }
