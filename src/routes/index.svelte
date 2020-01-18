@@ -3,110 +3,15 @@
 </script>
 
 <style>
-  :global(body) {
-    transition: background-color 0.2s, color 0.2s, word-spacing 0.2s,
-      line-height 0.2s;
-  }
 
-  :global(body) {
-    --background-color: hsl(225, 6%, 13%);
-    --text-color: hsl(180, 7%, 97%);
-    --link-color: hsl(213, 100%, 88%);
-    word-spacing: 0.05em;
-  }
-
-  @media (prefers-color-scheme: light) {
-    :global(body) {
-      --background-color: hsl(0, 0%, 100%);
-      --text-color: hsl(0, 0%, 13%);
-      --link-color: hsl(213, 100%, 28%);
-    }
-  }
-
-  :root {
-    font-size: 2.4vw;
-  }
-  @media all and (min-width: 1000px) {
-    :root {
-      font-size: 24px;
-    }
-  }
-  @media all and (max-width: 520px) {
-    :root {
-      font-size: 18px;
-    }
-  }
-
-  :global(body) {
-    background-color: var(--background-color);
-    color: var(--text-color);
-    font-family: "Source Serif Pro", serif;
-    font-feature-settings: "kern" 1;
-    font-feature-settings: "liga" 1;
-    font-size: 0.93rem;
-    line-height: 1.4;
-    max-width: 65ch;
-    margin: auto;
-    padding: 16px;
-    text-rendering: optimizeLegibility;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    margin: 0;
-    padding: 0;
-    font-family: "Source Sans Pro", sans-serif;
-  }
-
-  h1 {
-    font-size: 1.5em;
-  }
-
-  h2 {
-    font-size: 1.2em;
-  }
-
-  a,
-  a:visited,
-  a:active {
-    color: var(--link-color);
-    cursor: pointer;
-    transition: background 0.2s, text-decoration 0.2s, filter 0.2s;
-    text-decoration: underline solid var(--background-color);
-  }
-
-  a:active {
-    filter: brightness(60%);
-  }
-
-  a:hover {
-    text-decoration: underline;
-  }
 </style>
 
 <svelte:head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <meta name="Description" content="Homepage for Carter McBride" />
   <link rel="canonical" href="https://carter.works" />
   <title>Carter McBride</title>
-  <link
-    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro|Source+Serif+Pro&display=swap"
-    rel="stylesheet" />
 </svelte:head>
 
-<header>
-  <h1>Hi, I'm Carter.</h1>
-  <p>
-    I'm a budding software developer, fresh out of college. I love a good UI and
-    a smooth deploy.
-  </p>
-</header>
 <main>
   <section>
     <h2>Projects</h2>
