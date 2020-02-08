@@ -17,15 +17,10 @@
     <h2>Projects</h2>
     <ul>
       <li>
-        <a href="https://github.com/carterworks/GeoNote">GeoNote</a>
-        <span>—</span>
-        <span>
-          A note-taking app that indexes them not by title, but by location.
-          Written in Dart with the Flutter framework.
-        </span>
-      </li>
-      <li>
-        <a href="https://github.com/carterworks/discord-bots">Discord Bots</a>
+        <a
+          href="https://github.com/carterworks/side-projects/tree/master/discord-bots">
+          Discord Bots
+        </a>
         <span>—</span>
         <span>
           A few toy Discord Bots. Includes FTFYBot, which corrects your
@@ -34,7 +29,9 @@
         </span>
       </li>
       <li>
-        <a href="https://github.com/carterworks/uta">UTA</a>
+        <a href="https://github.com/carterworks/side-projects/tree/master/uta">
+          UTA
+        </a>
         <span>—</span>
         <span>
           A commandline utility and API wrapper for the Utah Transit Authority's
@@ -54,7 +51,7 @@
       <li>
         Simplifile
         <span>—</span>
-        <span>Intern from Jan 2019 to Present</span>
+        <span>Software Developer from Jan 2019 to Present</span>
         <ul>
           <li>Javascript/Typescript</li>
           <li>Angular</li>
