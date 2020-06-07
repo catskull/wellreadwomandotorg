@@ -69,3 +69,5 @@ dist
 
 # Sapper builds
 __sapper__
+
+.vscode/
