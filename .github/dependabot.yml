@@ -7,4 +7,4 @@ updates:
     time: "12:00"
   open-pull-requests-limit: 10
   ignore: 
-    update-types: "patch"
+    update-types: version-update:semver-patch
