@@ -2,6 +2,7 @@
 	"name": "site",
 	"version": "4.0.0",
 	"private": true,
+	"module": "public/index.html",
 	"license": "MIT",
 	"repository": {
 		"type": "git",
@@ -9,10 +10,13 @@
 	},
 	"scripts": {
 		"format": "prettier --write .",
-		"start": "live-server public/"
+		"dev": "bun --watch dev public/"
 	},
 	"devDependencies": {
-		"live-server": "1.2.2",
-		"prettier": "3.0.0"
+		"prettier": "^3.0.0",
+		"bun-types": "latest"
+	},
+	"peerDependencies": {
+		"typescript": "^5.0.0"
 	}
 }
