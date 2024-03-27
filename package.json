@@ -1,6 +1,6 @@
 {
 	"name": "site",
-	"version": "4.0.0",
+	"version": "5.0.0",
 	"private": true,
 	"module": "public/index.html",
 	"license": "MIT",
@@ -10,11 +10,16 @@
 	},
 	"scripts": {
 		"format": "prettier --write .",
-		"dev": "bun --watch dev public/"
+		"dev": "astro dev",
+		"start": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview"
 	},
 	"devDependencies": {
+		"astro": "latest",
+		"bun-types": "latest",
 		"prettier": "^3.0.0",
-		"bun-types": "latest"
+		"prettier-plugin-astro": "^0.13.0"
 	},
 	"peerDependencies": {
 		"typescript": "^5.0.0"
