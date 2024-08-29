@@ -28,6 +28,7 @@ const humanFriendlyDate = new Date(frontmatter.pubDate).toLocaleDateString(
 			margin-inline-start: 0.1rem;
 			font-size: 0.8rem;
 		}
+		margin-block-end: var(--padding-width);
 	}
 	article {
 		height: 100%;
@@ -39,8 +40,16 @@ const humanFriendlyDate = new Date(frontmatter.pubDate).toLocaleDateString(
 				font-style: italic;
 			}
 		}
-		> * {
-			margin-block-start: var(--padding-width);
+		> h2,
+		h3:not(:first-of-type) {
+			margin-block-start: calc(2 * var(--padding-width));
+		}
+		> h2,
+		h3 {
+			margin-block-end: calc(var(--padding-width) * 0.5);
+		}
+		p {
+			margin-block-end: var(--padding-width);
 		}
 		pre {
 			font-size: 0.75em;
@@ -57,6 +66,9 @@ const humanFriendlyDate = new Date(frontmatter.pubDate).toLocaleDateString(
 				display: block;
 				width: fit-content;
 			}
+		}
+		li + li {
+			margin-block-start: calc(var(--padding-width) * 0.25);
 		}
 	}
 </style>
