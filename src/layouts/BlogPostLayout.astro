@@ -2,6 +2,14 @@
 import BaseLayout from "./BaseLayout.astro";
 
 const { frontmatter } = Astro.props;
+const humanFriendlyDate = new Date(frontmatter.pubDate).toLocaleDateString(
+	"en-US",
+	{
+		year: "numeric",
+		month: "long",
+		day: "numeric",
+	}
+);
 ---
 
 <style>
@@ -23,14 +31,21 @@ const { frontmatter } = Astro.props;
 	}
 	article {
 		height: 100%;
-
+		header {
+			> *:not(h1) {
+				font-size: 0.75em;
+			}
+			:last-child {
+				font-style: italic;
+			}
+		}
 		> * {
 			margin-block-start: var(--padding-width);
 		}
 		pre {
 			font-size: 0.75em;
 		}
-		p:has(img) {
+		> p:has(img) {
 			img {
 				margin-inline: auto;
 			}
@@ -46,6 +61,15 @@ const { frontmatter } = Astro.props;
 	}
 </style>
 <BaseLayout title={`${frontmatter.title} | carter.works`}>
+	<Fragment slot="head">
+		<meta property="og:title" content={frontmatter.title} />
+		<meta property="og:type" content="article" />
+		<meta property="og:description" content={frontmatter.description} />
+		<meta name="description" content={frontmatter.description} />
+		<meta property="og:article:published_time" content={frontmatter.pubDate} />
+		<meta property="og:article:author" content="Carter McBride" />
+		<meta property="og:article:tag" content={frontmatter.tags.join(", ")} />
+	</Fragment>
 	<nav>
 		<a href="/"
 			><svg
@@ -65,6 +89,13 @@ const { frontmatter } = Astro.props;
 		</a>
 	</nav>
 	<article>
+		<header>
+			<h1>{frontmatter.title}</h1>
+			<time datetime={frontmatter.pubDate}>{humanFriendlyDate}</time>
+			<p>
+				{frontmatter.description}
+			</p>
+		</header>
 		<slot />
 	</article>
 </BaseLayout>

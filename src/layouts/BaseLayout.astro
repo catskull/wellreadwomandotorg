@@ -1,38 +1,31 @@
 ---
+import { ViewTransitions } from "astro:transitions";
 import "../styles/global.css";
-const { title, url } = Astro.props;
+const { title } = Astro.props;
+const { url } = Astro;
 ---
 
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="theme-color" content="#f43f5e" />
+		<meta name="theme-color" content="#fdf6e3" />
 		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
-		<meta
-			name="Description"
-			content="Front-end dev. Father. Young grump. Simple things enjoyer."
-		/>
 		<link rel="canonical" href={url} />
-		<!-- 32×32 -->
+		<meta property="og:url" content={url} />
+		<meta property="og:locale" content="en_US" />
+		<meta property="og:site_name" content="Carter McBride" />
 		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-		<!-- 180×180 -->
+		<link
+			rel="alternate"
+			type="application/rss+xml"
+			href={new URL("/blog/feed.xml", Astro.site)}
+		/>
 		<link rel="manifest" href="/manifest.webmanifest" />
 		<link rel="sitemap" href="/sitemap-index.xml" />
-		<meta property="og:title" content={title} />
-		<meta property="og:type" content="website" />
-		<meta
-			property="og:description"
-			content="Front-end dev. Father. Young grump. Simple things enjoyer."
-		/>
-		<meta property="og:image" content="https://carter.works/card.jpg" />
-		<meta property="og:url" content="https://carter.works/" />
-		<meta name="twitter:card" content="summary_large_image" />
-		<meta property="og:site_name" content="Carter McBride" />
-		<meta
-			name="twitter:image:alt"
-			content="A picture of a blue webpage. It reads 'Hi, I'm Carter. Front-end dev. Father. Young grump. Simple things enjoyer.' It has links to his LinkedIn and GitHub profiles, in the form of icons."
-		/>
+		<ViewTransitions />
+
+		<slot name="head" />
 
 		<title>{title}</title>
 		<style>
@@ -49,27 +42,30 @@ const { title, url } = Astro.props;
 		</style>
 		<script>
 			/**
-			* @param { Date } date
-			* @returns { number }
-			*/
+			 * @param { Date } date
+			 * @returns { number }
+			 */
 			class FormattedDate extends HTMLTimeElement {
 				constructor() {
 					super();
 					const attribute = this.getAttribute("datetime");
-					console.log("attribute", attribute);
 					if (!attribute) {
 						return;
 					}
 					const date = new Date(attribute);
-					const utcDate = new Date(date.getTime() + date.getTimezoneOffset() * 60000);
+					const utcDate = new Date(
+						date.getTime() + date.getTimezoneOffset() * 60000
+					);
 					this.textContent = utcDate.toLocaleDateString("en-us", {
 						year: "numeric",
 						month: "short",
-						day: "numeric"
-					})
+						day: "numeric",
+					});
 				}
 			}
-			customElements.define("formatted-date", FormattedDate, { extends: "time" });
+			customElements.define("formatted-date", FormattedDate, {
+				extends: "time",
+			});
 		</script>
 	</head>
 
