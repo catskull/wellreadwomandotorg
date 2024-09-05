@@ -8,7 +8,7 @@ const { title, class: classContent = "" } = Astro.props;
 const { url } = Astro;
 ---
 
-<html lang="en">
+<html lang="en" class="text-[20px]">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -61,12 +61,13 @@ const { url } = Astro;
 	</head>
 
 	<body
-		class="text-base font-classical-humanist bg-noise bg-sepia bg-[size:30%] p-4 h-screen text-bluish-black"
+		class="text-base font-classical-humanist bg-noise bg-sepia dark:bg-bluish-black bg-[size:30%] p-4 h-screen text-bluish-black dark:text-sepia"
 	>
 		<div
 			class:list={[
 				"border-4",
 				"border-bluish-black",
+				"dark:border-sepia",
 				"h-full",
 				"w-full",
 				"rounded-xl",
