@@ -4,8 +4,9 @@ import Prose from "./Prose.astro";
 interface Props {
 	url: string;
 	count?: number;
+	class?: string;
 }
-const { url, count = 2 } = Astro.props;
+const { url, count = 2, class: extraClasses } = Astro.props;
 ---
 
 <!-- <script
@@ -107,6 +108,6 @@ const { url, count = 2 } = Astro.props;
 	// Define the custom element
 	customElements.define("rss-feed", RSS);
 </script>
-<Prose class="prose-p:m-0 prose-hr:m-2">
+<Prose class:list={["prose-p:m-0", "prose-hr:m-2", extraClasses]}>
 	<rss-feed url={url} count={count}></rss-feed>
 </Prose>
