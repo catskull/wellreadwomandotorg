@@ -1,10 +1,18 @@
 ---
 import { ViewTransitions } from "astro:transitions";
+import Header from "../components/Header.astro";
 interface Props {
 	title: string;
 	class?: string;
+	showHeaderSubtitle?: boolean;
+	showHeaderLinks?: boolean;
 }
-const { title, class: classContent = "" } = Astro.props;
+const {
+	title,
+	class: classContent = "",
+	showHeaderSubtitle = false,
+	showHeaderLinks = false,
+} = Astro.props;
 const { url } = Astro;
 ---
 
@@ -61,22 +69,23 @@ const { url } = Astro;
 	</head>
 
 	<body
-		class="text-base font-classical-humanist bg-noise bg-sepia dark:bg-bluish-black bg-[size:30%] p-4 h-screen text-bluish-black dark:text-sepia"
+		class="text-base font-classical-humanist bg-noise bg-sepia dark:bg-blackish bg-[size:30%] p-4 h-screen text-blackish dark:text-sepia"
 	>
 		<div
 			class:list={[
 				"border-4",
-				"border-bluish-black",
+				"border-blackish",
 				"dark:border-sepia",
 				"h-full",
 				"w-full",
 				"rounded-xl",
 				"overflow-auto",
-				"p-3",
+				"p-4 pt-0",
 				"*:max-w-[55ch]",
 				...classContent.split(/\s+/g),
 			]}
 		>
+			<Header showLinks={showHeaderLinks} showSubtitle={showHeaderSubtitle} />
 			<slot />
 		</div>
 	</body>

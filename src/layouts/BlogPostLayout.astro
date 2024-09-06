@@ -1,9 +1,7 @@
 ---
-import A from "../components/A.astro";
 import Heading from "../components/Heading.astro";
 import Prose from "../components/Prose.astro";
-import BackChevron from "../components/icons/BackChevron.astro";
-import BaseLayout from "./BaseLayout.astro";
+import PageWithHeaderLayout from "./PageWithHeaderLayout.astro";
 
 const { frontmatter } = Astro.props;
 const humanFriendlyDate = new Date(frontmatter.pubDate).toLocaleDateString(
@@ -16,7 +14,10 @@ const humanFriendlyDate = new Date(frontmatter.pubDate).toLocaleDateString(
 );
 ---
 
-<BaseLayout title={`${frontmatter.title} | carter.works`} class="*:mx-auto">
+<PageWithHeaderLayout
+	title={`${frontmatter.title} | carter.works`}
+	class="*:mx-auto"
+>
 	<Fragment slot="head">
 		<meta property="og:title" content={frontmatter.title} />
 		<meta property="og:type" content="article" />
@@ -26,12 +27,6 @@ const humanFriendlyDate = new Date(frontmatter.pubDate).toLocaleDateString(
 		<meta property="og:article:author" content="Carter McBride" />
 		<meta property="og:article:tag" content={frontmatter.tags.join(", ")} />
 	</Fragment>
-	<nav class="mb-4">
-		<A underline={false} href="/">
-			<BackChevron label="Back" />
-			<span class="underline">Home</span>
-		</A>
-	</nav>
 	<article>
 		<header class="text-sm mb-4">
 			<Heading level={1}>{frontmatter.title}</Heading>
@@ -53,4 +48,4 @@ const humanFriendlyDate = new Date(frontmatter.pubDate).toLocaleDateString(
 			<slot />
 		</Prose>
 	</article>
-</BaseLayout>
+</PageWithHeaderLayout>

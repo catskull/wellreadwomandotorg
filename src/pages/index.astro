@@ -3,15 +3,17 @@ import { getCollection } from "astro:content";
 import A from "../components/A.astro";
 import Heading from "../components/Heading.astro";
 import RssFeed from "../components/RssFeed.astro";
-import Rss from "../components/icons/Rss.astro";
-import WavingHand from "../components/icons/WavingHand.astro";
+import allLinks from "../content/links";
+import Rss from "../icons/Rss.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-const allPosts = await getCollection("blog");
+const recentPosts = (await getCollection("blog")).slice(0, 3);
+const links = allLinks.filter((link) => link.text !== "Home");
 ---
 
 <BaseLayout
 	title="👋 I'm Carter."
 	class="grid place-content-center items-center"
+	showHeaderSubtitle
 >
 	<Fragment slot="head">
 		<meta property="og:title" content="👋 I'm Carter." />
@@ -26,50 +28,40 @@ const allPosts = await getCollection("blog");
 			content="Front-end dev. Father. Young grump. Simple things enjoyer."
 		/>
 	</Fragment>
-	<header>
-		<hgroup>
-			<Heading level={1}>
-				<WavingHand label="Hello" />
-				I'm Carter.
-			</Heading>
-			<p>Front-end dev. Father. Young grump. Simple things enjoyer.</p>
-		</hgroup>
-		<nav>
-			<ul class="flex gap-4 flex-wrap">
-				<li>
-					<A rel="me" href="https://mastodon.social/@literallyacar">Mastodon</A>
-				</li>
-				<li>
-					<A href="https://github.com/carterworks">GitHub</A>
-				</li>
-				<li>
-					<A href="https://www.linkedin.com/in/thatcartermcbride/">
-						LinkedIn
-					</A>
-				</li>
-			</ul>
-		</nav>
-	</header>
 	<main>
-		<section class="mt-2">
-			<Heading level={2}>Latest speakings</Heading>
+		<section>
+			<Heading level={2}>Links</Heading>
+			<ul>
+				<ul class="flex gap-4 flex-wrap">
+					{
+						links.map((link) => (
+							<li>
+								<A {...link.attrs}>{link.text}</A>
+							</li>
+						))
+					}
+				</ul>
+			</ul>
+		</section>
+		<section class="mt-4">
+			<Heading level={2}>Recent thoughts</Heading>
 			<RssFeed
 				class="text-sm"
 				url="https://mastodon.social/@literallyacar.rss"
-				count={1}
+				count={2}
 			/>
 		</section>
 		{
-			allPosts.length > 0 && (
-				<section class="mt-2">
+			recentPosts.length > 0 && (
+				<section class="mt-4">
 					<Heading level={2}>
-						Blog posts{" "}
+						Recent blog posts{" "}
 						<A href="/blog/feed.xml" underline={false}>
-							<Rss label="RSS feed" class="align-middle" />
+							<Rss label="RSS feed" class="inline" />
 						</A>
 					</Heading>
-					<ul class="flex flex-col gap-2 max-h-[55vh] overflow-y-auto *:text-sm">
-						{allPosts.map((post) => (
+					<ul class="flex flex-col gap-2 overflow-y-auto *:text-sm">
+						{recentPosts.map((post) => (
 							<li>
 								<A href={`/blog/${post.slug}/`} underline={false}>
 									<p class="underline text-base">{post.data.title}</p>
