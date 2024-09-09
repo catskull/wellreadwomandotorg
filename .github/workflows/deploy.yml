@@ -7,6 +7,9 @@ jobs:
     runs-on: ubuntu-latest
     name: Deploy
     steps:
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
       - uses: actions/checkout@v4
       - name: Deploy
         uses: cloudflare/wrangler-action@v3
