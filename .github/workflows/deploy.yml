@@ -20,7 +20,7 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy dist/ --site ${{ env.CLOUDFLARE_SITE_ID }}
+          command: pages deploy dist/ --project-name=${{ env.CLOUDFLARE_SITE_ID }}
       - name: Print deployment URL
         env:
           DEPLOYMENT_URL: ${{ steps.deploy.outputs.deployment_url }}
