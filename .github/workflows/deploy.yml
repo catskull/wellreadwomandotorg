@@ -2,9 +2,6 @@ name: Deploy
 
 on: [push]
 
-env:
-  CLOUDFLARE_SITE_ID: ${{ env.CLOUDFLARE_SITE_ID }}
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -23,7 +20,7 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy dist/ --project-name=${{ env.CLOUDFLARE_SITE_ID }}
+          command: pages deploy dist/ --project-name=${{ secrets.CLOUDFLARE_SITE_ID }}
       - name: Print deployment URL
         env:
           DEPLOYMENT_URL: ${{ steps.deploy.outputs.deployment_url }}
