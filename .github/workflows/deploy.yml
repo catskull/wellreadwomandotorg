@@ -1,7 +1,7 @@
 name: Deploy
 
-on: 
-  push:
+on:
+  - push:
 
 jobs:
   deploy:
@@ -18,4 +18,4 @@ jobs:
       - name: Print deployment URL
         env:
           DEPLOYMENT_URL: ${{ steps.deploy.outputs.deployment_url }}
-        run: echo "Deployment URL: $DEPLOYMENT_URL"
+        run: echo $DEPLOYMENT_URL
