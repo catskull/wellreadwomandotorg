@@ -3,7 +3,7 @@ name: Deploy
 on: [push]
 
 env:
-	CLOUDFLARE_SITE_ID: ${{ env.CLOUDFLARE_SITE_ID }}
+  CLOUDFLARE_SITE_ID: ${{ env.CLOUDFLARE_SITE_ID }}
 
 jobs:
   deploy:
