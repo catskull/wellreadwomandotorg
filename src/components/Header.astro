@@ -27,7 +27,7 @@ const possibleSubtitles = [
 const links = allLinks.filter((link) => !link.isExternal);
 ---
 
-<script define:vars={possibleSubtitles}>
+<script define:vars={{ possibleSubtitles }}>
 	function randomSubtitle() {
 		const $headingSubtitle = document.getElementById("heading-subtitle");
 		if (!$headingSubtitle) {
