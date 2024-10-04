@@ -11,13 +11,13 @@ const links = allLinks.filter((link) => link.text !== "Home");
 ---
 
 <BaseLayout
-	title="👋 I'm Carter."
+	title="Well-Read Woman"
 	class="grid place-content-center items-center"
 	showHeaderSubtitle
 	noHeaderBackground
 >
 	<Fragment slot="head">
-		<meta property="og:title" content="👋 I'm Carter." />
+		<meta property="og:title" content="Well-Read Woman" />
 		<meta property="og:type" content="website" />
 		<meta
 			name="description"
@@ -45,40 +45,12 @@ const links = allLinks.filter((link) => link.text !== "Home");
 			</ul>
 		</section>
 		<section class="mt-4">
-			<Heading level={2}>Recent thoughts</Heading>
+			<Heading level={2}>Recent reviews</Heading>
 			<RssFeed
-				class="overflow-y-auto max-h-64"
-				url="https://mastodon.social/@literallyacar.rss"
-				count={2}
+				class="overflow-y-auto max-h-80"
+				url="https://proxy.catskull.net/https://www.goodreads.com/user/updates_rss/43825336"
+				count={10}
 			/>
 		</section>
-		{
-			recentPosts.length > 0 && (
-				<section class="mt-4">
-					<Heading level={2}>
-						Recent blog posts{" "}
-						<A href="/blog/feed.xml" underline={false}>
-							<Rss label="RSS feed" class="inline" />
-						</A>
-					</Heading>
-					<ul class="flex flex-col gap-2 overflow-y-auto *:text-sm">
-						{recentPosts.map((post) => (
-							<li>
-								<A href={`/blog/${post.slug}/`} underline={false}>
-									<p class="underline text-base">{post.data.title}</p>
-									<p>
-										<time
-											datetime={post.data.pubDate.toString()}
-											is="formatted-date"
-										/>
-									</p>
-									<p>{post.data.description}</p>
-								</A>
-							</li>
-						))}
-					</ul>
-				</section>
-			)
-		}
 	</main>
 </BaseLayout>

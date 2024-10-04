@@ -1,29 +1,22 @@
 export default [
 	{
 		attrs: {
-			rel: "me",
-			href: "https://mastodon.social/@literallyacar",
+			href: "https://app.thestorygraph.com/profile/andeedevore",
 		},
-		text: "Mastodon",
+		text: "StoryGraph",
 	},
 	{
 		attrs: {
-			href: "https://github.com/carterworks",
+			href: "https://www.instagram.com/wellreadwomanorg/",
 		},
-		text: "GitHub",
+		text: "Instagram",
 	},
 	{
 		attrs: {
-			href: "https://www.linkedin.com/in/thatcartermcbride/",
+			href: "https://www.goodreads.com/user/show/43825336-andee-devore",
 		},
-		text: "LinkedIn",
-	},
-	{
-		attrs: {
-			href: "/blog",
-		},
-		text: "Blog",
-	},
+		text: "goodreads",
+	}
 ]
 	.map((link) => ({ ...link, isExternal: link.attrs.href.startsWith("http") }))
 	.sort((a, b) => a.text.localeCompare(b.text));
